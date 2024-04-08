@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-bot
+  namespace: carrot-{{ .Chart.AppVersion }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-bot
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-bot
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}-bot
+        image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
+        env:
+        - name: RUST_LOG
+          value: info
+        - name: MAIN_MNEMONIC
+          valueFrom:
+            secretKeyRef:
+              name: carrot-bot
+              key: bot-mnemonic
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
