@@ -1,0 +1,48 @@
+name: Build Helm Charts and Publish to GitHub Pages
+
+on:
+  push:
+    branches: [ '*' ]  # Adjust branch(es) to trigger the workflow
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+  
+jobs:
+
+  build-and-publish:
+    runs-on: ubuntu-latest  # Adjust OS as needed
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js (for helm packaging)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Adjust Node.js version as needed
+
+      - name: Install Helm CLI
+        run: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/v3.9.3/scripts/get-helm-3.sh
+          chmod +x get_helm.sh
+          ./get_helm.sh
+
+      - name: Build Helm Charts
+        run: |
+          for dir in helm-apps/*; do
+            helm package "$dir"
+          done
+
+      - name: Generate index.yaml
+        run: |
+          helm repo index . > index.yaml  # Replace '.' with the path to your charts directory if needed
+
+      - name: Deploy generated files to GitHub Pages (replace with your own deployment actions)
+        uses: actions/deploy-pages@v1
+        with:
+          source: .  # Replace with the path containing the generated index.yaml and potentially other files for your GitHub Pages
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages  # Adjust branch name for your GitHub Pages content
