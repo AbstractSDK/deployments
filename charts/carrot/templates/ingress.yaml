@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Chart.Name }}-bot-ingress
-  namespace: {{ .Chart.Name }}-{{ .Values.env }}- {{ regexReplaceAll "\\W+" .Chart.AppVersion "_" }}
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "_" }}_{{ .Values.env }}_{{ regexReplaceAll "\\W+" .Chart.AppVersion "_" }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     ingress.kubernetes.io/ssl-redirect: "false"

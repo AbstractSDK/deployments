@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Chart.Name }}-bot
-  namespace: {{ .Chart.Name }}-{{ .Values.env }}- {{ replace .Chart.AppVersion "." "_" }}
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "_" }}_{{ .Values.env }}_{{ regexReplaceAll "\\W+" .Chart.AppVersion "_" }}
 spec:
   selector:
     matchLabels:
