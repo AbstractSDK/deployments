@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Chart.Name }}-bot
-  namespace: carrot-{{ .Values.env }}
+  namespace: {{ .Chart.Name }}-{{ .Values.env }}- {{ replace .Chart.AppVersion "." "_" }}
 spec:
   selector:
     matchLabels:
@@ -29,4 +29,4 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
-        
+
