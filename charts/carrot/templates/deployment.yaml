@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Chart.Name }}-bot
-  namespace: carrot-{{ .Values.environment }}
+  namespace: carrot-{{ .Values.env }}
 spec:
   selector:
     matchLabels:

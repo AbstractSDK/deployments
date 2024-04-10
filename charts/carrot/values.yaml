@@ -1,4 +1,4 @@
 replicaCount: 3
-environment: default
+env: default
 bot: 
   version: "0.1.0"
