@@ -25,4 +25,17 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/carrot-app-0.1.2/carrot-app-0.1.2.tgz
     version: 0.1.2
-generated: "2024-04-10T12:07:10.554132462Z"
+  dca:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-04-10T12:10:51.747942425Z"
+    description: A Helm chart for deploying the DCA App
+    digest: 8a89226f68cbdee8bc9a12f8bdd436c082b2e51846a1ad2c074712ba82806860
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: dca
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.1/dca-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-04-10T12:10:51.747957123Z"
