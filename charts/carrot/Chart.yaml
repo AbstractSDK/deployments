@@ -1,8 +1,8 @@
 apiVersion: v2
 description: A Helm chart for deploying the Carrot Savings App
-name: carrot-app
-version: 0.1.9
-AppVersion: 0.1.6
+name: carrot
+version: 0.1.11
+AppVersion: 0.1.7
 maintainers:
   - name: katarina
     email: kais@abstract.money

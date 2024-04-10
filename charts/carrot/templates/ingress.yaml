@@ -24,4 +24,4 @@ spec:
   tls:
   - hosts:
     - {{ .Chart.Name }}-bot.{{ .Chart.Name }}.abstract.money
-    secretName: {{ .Chart.Name }}-bot-cert
+    secretName: {{ .Chart.Name }}-cert
