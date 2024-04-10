@@ -1,3 +1,16 @@
 apiVersion: v1
-entries: {}
-generated: "2024-04-10T12:22:50.76766+01:00"
+entries:
+  carrot-app:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-04-10T12:27:24.479586+01:00"
+    description: A Helm chart for deploying the Carrot Savings App
+    digest: cd4e21f126bdb8492a293972def4f3e73ccd5c980297ad7dee3d270168d827c3
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: carrot-app
+    urls:
+    - carrot-app-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-04-10T12:27:24.478852+01:00"
