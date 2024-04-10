@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: {{ .Chart.Name }}-{{ .Values.env }}- {{ replace .Chart.AppVersion "." "_" }}
+  name: {{ .Chart.Name }}-{{ .Values.env }}- {{ regexReplaceAll "\\W+" .Chart.AppVersion "_" }}
