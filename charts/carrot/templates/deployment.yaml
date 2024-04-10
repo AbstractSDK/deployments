@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Chart.Name }}-bot
-  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-bot
+      app: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-bot-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-bot
+        app: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-bot-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
     spec:
       containers:
       - name: {{ .Chart.Name }}-bot
