@@ -17,7 +17,7 @@ spec:
         vault.hashicorp.com/agent-inject-secret-bot: 'apps/carrot/prod/bot/main_mnemonic'
         vault.hashicorp.com/agent-inject-template-bot: |
           {{`{{- with secret "apps/carrot/prod/bot/main_mnemonic" -}}
-            export MAIN_MNEMONIC="{{ .Data.mnemonic }}"
+            export MAIN_MNEMONIC="{{ .Data.data.mnemonic }}"
           {{- end }}`}}
     spec:
       serviceAccountName: internal-app
