@@ -14,7 +14,7 @@ spec:
   - host: {{ .Chart.Name }}-bot.{{ .Chart.Name }}.abstract.money
     http:
       paths:
-      - path: /
+      - path: /metrics
         pathType: Prefix
         backend:
           service:
