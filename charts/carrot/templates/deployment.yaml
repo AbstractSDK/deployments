@@ -23,18 +23,12 @@ spec:
       serviceAccountName: internal-app
       containers:
       - name: {{ .Chart.Name }}-bot
-        #image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
-        image: nginx
-        #command: ["sh", "-c"]
-        #args: ["source /vault/secrets/config && ./entrypoint.sh"]
+        image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
+        command: ["sh", "-c"]
+        args: [". /vault/secrets/config && ./entrypoint.sh"]
         env:
         - name: RUST_LOG
           value: info
-        #- name: MAIN_MNEMONIC
-        #  valueFrom:
-        #    secretKeyRef:
-        #      name: carrot-bot
-        #      key: bot-mnemonic
         resources:
           limits:
             memory: "128Mi"
