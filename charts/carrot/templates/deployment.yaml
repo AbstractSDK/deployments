@@ -23,11 +23,11 @@ spec:
         env:
         - name: RUST_LOG
           value: info
-        - name: MAIN_MNEMONIC
-          valueFrom:
-            secretKeyRef:
-              name: carrot-bot
-              key: bot-mnemonic
+        #- name: MAIN_MNEMONIC
+        #  valueFrom:
+        #    secretKeyRef:
+        #      name: carrot-bot
+        #      key: bot-mnemonic
         resources:
           limits:
             memory: "128Mi"
