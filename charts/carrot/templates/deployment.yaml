@@ -6,7 +6,11 @@ metadata:
 annotation:
   vault.hashicorp.com/agent-inject: 'true'
   vault.hashicorp.com/role: 'internal-app'
-  vault.hashicorp.com/agent-inject-secret-database-config.txt: 'apps/carrot/prod/bot/main_mnemonic'
+  vault.hashicorp.com/agent-inject-secret-config: 'apps/carrot/prod/bot/main_mnemonic'
+  vault.hashicorp.com/agent-inject-template-config: |
+          {{- with secret "apps/carrot/prod/bot/main_mnemonic" -}}
+            export MAIN_MNEMONIC="{{ .Data }}"
+          {{- end }}
 spec:
   selector:
     matchLabels:
@@ -20,6 +24,10 @@ spec:
       containers:
       - name: {{ .Chart.Name }}-bot
         image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
+        command:
+            ['sh', '-c']
+          args:
+            ['source /vault/secrets/config && ./entrypoint.sh']
         env:
         - name: RUST_LOG
           value: info
