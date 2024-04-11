@@ -1,3 +1,3 @@
 env: prod
 bot: 
-  version: "latest"
+  version: "022bf9f02180bc8429c13eb8173ed4712d653fc5"

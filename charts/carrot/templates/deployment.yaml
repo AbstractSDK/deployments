@@ -24,8 +24,6 @@ spec:
       containers:
       - name: {{ .Chart.Name }}-bot
         image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
-        command: ["sh", "-c"]
-        args: [". /vault/secrets/config && ./entrypoint.sh"]
         env:
         - name: RUST_LOG
           value: info
