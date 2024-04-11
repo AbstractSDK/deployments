@@ -23,5 +23,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - {{ .Chart.Name }}-bot.{{ .Chart.Name }}.abstract.money
+    - {{ .Chart.Name }}-bot.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
     secretName: {{ .Chart.Name }}-cert
