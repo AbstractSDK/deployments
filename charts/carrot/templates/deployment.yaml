@@ -3,6 +3,10 @@ kind: Deployment
 metadata:
   name: {{ .Chart.Name }}-bot
   namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
+annotation:
+  vault.hashicorp.com/agent-inject: 'true'
+  vault.hashicorp.com/role: 'internal-app'
+  vault.hashicorp.com/agent-inject-secret-database-config.txt: 'apps/carrot/prod/bot/main_mnemonic'
 spec:
   selector:
     matchLabels:
