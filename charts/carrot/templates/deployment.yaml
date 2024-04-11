@@ -6,11 +6,11 @@ metadata:
 annotation:
   vault.hashicorp.com/agent-inject: 'true'
   vault.hashicorp.com/role: 'internal-app'
-  vault.hashicorp.com/agent-inject-secret-config: 'apps/carrot/prod/bot/main_mnemonic'
-  vault.hashicorp.com/agent-inject-template-config: |
-          {{`{{- with secret "apps/carrot/prod/bot/main_mnemonic" -}}
-            export MAIN_MNEMONIC="{{ .Data }}"
-          {{- end }}`}}
+  vault.hashicorp.com/agent-inject-secret-db-creds: 'apps/carrot/prod/bot/main_mnemonic'
+  vault.hashicorp.com/agent-inject-template-db-creds: |
+    {{`{{- with secret "apps/carrot/prod/bot/main_mnemonic" -}}
+      export MAIN_MNEMONIC="{{ .Data.mnemonic }}"
+    {{- end }}`}}
 spec:
   selector:
     matchLabels:
