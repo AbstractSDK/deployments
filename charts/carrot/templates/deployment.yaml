@@ -6,11 +6,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-bot-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
+      app: {{ .Chart.Name }}-bot
   template:
     metadata:
       labels:
-        app: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-bot-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
+        app: {{ .Chart.Name }}-bot
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/role: 'internal-app'
