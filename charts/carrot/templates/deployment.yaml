@@ -12,6 +12,7 @@ spec:
       labels:
         app: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-bot-{{ .Values.env }}-{{ regexReplaceAll "\\W+" .Chart.AppVersion "-" }}
     spec:
+      serviceAccountName: internal-app
       containers:
       - name: {{ .Chart.Name }}-bot
         image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
