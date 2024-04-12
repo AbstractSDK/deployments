@@ -24,6 +24,7 @@ spec:
       containers:
       - name: {{ .Chart.Name }}-bot
         image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/carrot-bot:{{ .Values.bot.version}}
+        imagePullPolicy: Always
         env:
         - name: RUST_LOG
           value: info
