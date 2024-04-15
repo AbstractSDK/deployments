@@ -46,6 +46,7 @@ jobs:
       - run:  cat ~/.kube/config
       - run:  cat ~/.aws/credentials
       - run: aws eks list-clusters
+      - run: kubectl cluster-info
       - run:  kubectl get pods 
   
       - run: |
