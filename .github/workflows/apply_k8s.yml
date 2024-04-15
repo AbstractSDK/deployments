@@ -37,3 +37,4 @@ jobs:
   
       - run: |
           kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
+          
