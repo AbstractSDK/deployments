@@ -29,9 +29,10 @@ jobs:
                aws eks update-kubeconfig --region us-east-1 --name prod-eks-2 --dry-run | base64
                echo EOF
              } >> "$GITHUB_ENV"
-      - run: echo $KUBE_CONFIG
-      #- name: Update kube config
-      #  run: aws eks update-kubeconfig --name prod-eks-2 --region us-east-1
+      - run: kubectl config current-context
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name prod-eks-2 --region us-east-1
+      - run: kubectl config current-context
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
