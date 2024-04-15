@@ -33,8 +33,7 @@ jobs:
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
       - run:  env
-      - run:  kubectl get pods 
+      - run:  kubectl config set-context  arn:aws:eks:us-east-1:537748208826:cluster/prod-eks-2 && kubectl get pods 
   
       - run: |
           kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
-          
