@@ -23,8 +23,6 @@ jobs:
           aws-region: us-east-1
           
       - name: Generate kubeconfig
-        #id: kubeconfig
-        #run: echo "KUBE_CONFIG=$(aws eks update-kubeconfig --region us-east-1 --name prod-eks-2 --dry-run | base64)" >> "$GITHUB_OUTPUT"
         run: |
              {
                echo 'KUBE_CONFIG<<EOF'
@@ -32,14 +30,12 @@ jobs:
                echo EOF
              } >> "$GITHUB_ENV"
       - run: echo $KUBE_CONFIG
-        #env:
-        #  KUBE_CONFIG: ${{ steps.kubeconfig.outputs.KUBE_CONFIG }}
-      - name: Update kube config
-        run: aws eks update-kubeconfig --name prod-eks-2 --region us-east-1
+      #- name: Update kube config
+      #  run: aws eks update-kubeconfig --name prod-eks-2 --region us-east-1
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
-      #- run: kubectl get pods --all-namespaces
+      - run: kubectl get pods --all-namespaces
   
       - run: |
           kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
