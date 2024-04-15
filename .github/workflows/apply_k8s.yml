@@ -32,6 +32,8 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
-      - run:  kubectl config get-contexts  
       - run: |
-          kubectl apply -f charts/*/environments/*/argo-app.yaml
+          shopt -s nullglob  # Enable null globbing for handling empty directories
+          for file in charts/*/environments/*/argo-app.yaml; do
+              kubectl apply -f "$file"
+          done
