@@ -32,10 +32,6 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
-      - run:  kubectl config get-contexts
-
-      - run:  kubectl get pods --all-namespaces
-
-  
+      - run:  kubectl config get-contexts  
       - run: |
-          kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
+          kubectl apply -f charts/*/environments/*/argo-app.yaml
