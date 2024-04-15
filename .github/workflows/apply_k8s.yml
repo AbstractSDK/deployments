@@ -47,8 +47,8 @@ jobs:
       - run:  cat ~/.aws/credentials
       - run: aws eks list-clusters
       - run: kubectl config view
-      - run: kubectl cluster-info
-      - run:  kubectl get pods 
+      #- run: kubectl cluster-info
+      - run:  kubectl get pods --server https://90261FA1170C82588E5619262E2226A3.gr7.us-east-1.eks.amazonaws.com
   
       - run: |
           kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
