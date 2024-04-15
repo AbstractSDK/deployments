@@ -37,6 +37,8 @@ jobs:
       - run: |
          kubectl config set-context  arn:aws:eks:us-east-1:537748208826:cluster/prod-eks-2
          kubectl get pods --all-namespaces
+        env:
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
   
       - run: |
           kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
