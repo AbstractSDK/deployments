@@ -34,7 +34,7 @@ jobs:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
       - run:  kubectl config get-contexts
 
-      - run:  kubectl get pods
+      - run:  kubectl get pods --all-namespces
 
   
       - run: |
