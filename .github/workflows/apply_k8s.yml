@@ -33,6 +33,7 @@ jobs:
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
       - run:  kubectl config get-contexts
+      - run: aws eks update-kubeconfig --region us-east-1 --name prod-eks-2
       - run:  cat ~/.kubeconfig
       - run:  kubectl get pods 
   
