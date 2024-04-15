@@ -32,6 +32,7 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
+      - run:  env
       - run:  kubectl get pods 
   
       - run: |
