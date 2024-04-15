@@ -10,23 +10,23 @@ permissions:
 
 jobs:
 
-  build-and-push:
+  apply:
     runs-on: ubuntu-latest  # Adjust OS as needed
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1.7.0
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::537748208826:role/github-action
-          role-session-name: github-actions-ecr-access-role
           aws-region: us-east-1
-
-      - run: |  
-          curl -LO "https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl"
-          chmod +x kubectl
-          mv kubectl ~/bin/kubectl
-
+      - name: Generate kubeconfig
+        run: echo "EKS_CREDS=$(aws eks update-kubeconfig --region us-east-1 --name prod-eks --dry-run | base64) >> $GITHUB_ENV
+      - uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ env.EKS_CREDS }}
+      - run: kubectl get pods --all-namespaces
+  
       - run: |
           kubectl apply -f charts/carrot/environments/argo-app.yaml
