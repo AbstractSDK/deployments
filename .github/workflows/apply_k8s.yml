@@ -32,7 +32,7 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
           base64-kube-config: ${{ env.KUBE_CONFIG }}
-      - run:  env
+      - run:  kubectl config get-contexts
       - run:  kubectl config set-context  arn:aws:eks:us-east-1:537748208826:cluster/prod-eks-2 && kubectl get pods 
   
       - run: |
