@@ -27,9 +27,9 @@ jobs:
       - run: echo $KUBE_CONFIG
       - name: Update kube config
         run: aws eks update-kubeconfig --name prod-eks-2 --region us-east-1
-      #- uses: tale/kubectl-action@v1
-      #  with:
-      #    base64-kube-config: ${{ env.EKS_CREDS }}
+      - uses: tale/kubectl-action@v1
+        with:
+          base64-kube-config: ${{ env.KUBE_CONFIG }}
       #- run: kubectl get pods --all-namespaces
   
       - run: |
