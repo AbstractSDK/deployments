@@ -31,4 +31,4 @@ jobs:
       #- run: kubectl get pods --all-namespaces
   
       - run: |
-          kubectl apply -f charts/carrot/environments/argo-app.yaml
+          kubectl apply -f charts/carrot/environments/prod/argo-app.yaml
