@@ -21,14 +21,15 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::537748208826:role/github-actions-to-eks
           aws-region: us-east-1
-      - name: generate-kubeconfig
-        run: |
-          EKS_CREDS=$(aws eks update-kubeconfig --region us-east-1 --name prod-eks-2 --dry-run | base64)
-          echo "::set-output name=eks_creds::$EKS_CREDS"
+          
+      - name: Generate kubeconfig
+        run: echo "EKS_CREDS=$(aws eks update-kubeconfig --region us-east-1 --name prod-eks-2 --dry-run | base64) >> $GITHUB_ENV"
+      - run: echo $EKS_CREDS
+        with:
+          EKS_CREDS: ${{ env.EKS_CREDS }}
       - uses: tale/kubectl-action@v1
         with:
-          base64-kube-config: ${{ steps.generate-kubeconfig.outputs.eks_creds }}
-
+          base64-kube-config: ${{ env.EKS_CREDS }}
       - run: kubectl get pods --all-namespaces
   
       - run: |
