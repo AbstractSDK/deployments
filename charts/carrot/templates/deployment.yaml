@@ -28,10 +28,6 @@ spec:
         env:
         - name: RUST_LOG
           value: info
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8000
 
