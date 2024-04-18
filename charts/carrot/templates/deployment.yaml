@@ -14,9 +14,9 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
         vault.hashicorp.com/role: 'internal-app'
-        vault.hashicorp.com/agent-inject-secret-bot: 'apps/carrot/prod/bot/main_mnemonic'
+        vault.hashicorp.com/agent-inject-secret-bot: '{{ .Values.bot.mnemonic_path }}'
         vault.hashicorp.com/agent-inject-template-bot: |
-          {{`{{- with secret "apps/carrot/prod/bot/main_mnemonic" -}}
+          {{`{{- with secret "{{ .Values.bot.mnemonic_path }}" -}}
             export MAIN_MNEMONIC="{{ .Data.data.mnemonic }}"
           {{- end }}`}}
     spec:

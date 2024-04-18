@@ -2,3 +2,4 @@ replicaCount: 3
 env: default
 bot: 
   version: "latest"
+  mnemonic_path: "apps/carrot/prod/bot/main_mnemonic"
