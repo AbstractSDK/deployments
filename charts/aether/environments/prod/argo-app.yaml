@@ -27,6 +27,7 @@ spec:
       - CreateNamespace=true
       - PruneLast=true
 ---
+
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
@@ -34,3 +35,14 @@ metadata:
   namespace: argocd
 spec:
   description: aether API
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - name: in-cluster
+      namespace: '*'
+      server: https://kubernetes.default.svc
+  orphanedResources:
+    warn: true
+  sourceRepos:
+    - https://github.com/AbstractSDK/aether
