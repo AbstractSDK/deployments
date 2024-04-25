@@ -3,6 +3,18 @@ entries:
   aether:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-04-25T15:54:37.452171553Z"
+    description: A Helm chart for deploying the aether API.
+    digest: 5d472dcb173e5d510d0eb6dbe0cc60b1ceac9ba951cf8db75fe35e796a9f3345
+    maintainers:
+    - email: howard@abstract.money
+      name: cyberhoward
+    name: aether
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/aether-0.0.2/aether-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-04-25T15:08:48.000733754Z"
     description: A Helm chart for deploying the aether API.
     digest: 4a8c7aa157721feea6ff564a3f3c8f0ecae1d30b62041e461d92f7837a666fc5
@@ -544,4 +556,4 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.1/dca-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-25T15:08:48.000855622Z"
+generated: "2024-04-25T15:54:37.452259327Z"
