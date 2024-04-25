@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: carrot
     server: https://kubernetes.default.svc
-  project: carrot
+  project: default
   source:
     chart: carrot
     helm:
@@ -26,3 +26,25 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: default
+  namespace: argocd
+spec:
+  
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - name: in-cluster
+      namespace: '*'
+      server: https://kubernetes.default.svc
+  orphanedResources:
+    warn: true
+  sourceRepos:
+    - https://github.com/AbstractSDK/aether
+    - https://github.com/AbstractSDK/carrot-app
+    - https://github.com/AbstractSDK/deployments/
+  

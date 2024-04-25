@@ -7,7 +7,7 @@ spec:
   destination:
     namespace: aether
     server: https://kubernetes.default.svc
-  project: aether
+  project: default
   source:
     chart: aether
     helm:
@@ -26,25 +26,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
----
-
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: aether
-  namespace: argocd
-spec:
-  description: aether API
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-  destinations:
-    - name: in-cluster
-      namespace: '*'
-      server: https://kubernetes.default.svc
-  orphanedResources:
-    warn: true
-  sourceRepos:
-    - https://github.com/AbstractSDK/aether
-    - https://github.com/AbstractSDK/deployments/
-  
