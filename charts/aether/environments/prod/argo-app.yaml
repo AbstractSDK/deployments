@@ -13,7 +13,7 @@ spec:
     helm:
       valueFiles:
         - environments/prod/values.yaml
-    repoURL: https://abstractsdk.github.io/deployments
+    repoURL: https://abstractsdk.github.io/deployments/
     targetRevision: 0.x
   syncPolicy:
     automated: {}
@@ -45,9 +45,6 @@ spec:
   orphanedResources:
     warn: true
   sourceRepos:
-    - https://github.com/AbstractSDK/aether
-    - https://github.com/AbstractSDK/deployments
-  scopedRepos:
     - https://github.com/AbstractSDK/aether
     - https://github.com/AbstractSDK/deployments/
   
