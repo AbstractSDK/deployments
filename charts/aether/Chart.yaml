@@ -1,7 +1,7 @@
 apiVersion: v2
 description: A Helm chart for deploying the aether API.
 name: aether
-version: 0.0.2
+version: 0.0.3
 AppVersion: 0.0.1
 maintainers:
   - name: cyberhoward
