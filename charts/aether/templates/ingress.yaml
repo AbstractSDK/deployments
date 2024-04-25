@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ .Chart.Name }}-api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
+  - host: api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
     http:
       paths:
       - path: /
@@ -23,5 +23,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - {{ .Chart.Name }}-api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
+    - api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
     secretName: {{ .Chart.Name }}-cert
