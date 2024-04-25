@@ -1,5 +1,4 @@
 env: prod
 bot: 
-#  version: "v0.3.1"
-  version: "3b4d38afe5f50a794a298146260c8432f140ace4" # I know that this commit works, so we keep it until next tag. v0.3.1 is missing some pipeline stuff to work 
+  version: "v0.4.0" 
   mnemonic_path: "apps/carrot/prod/bot/main_mnemonic"
