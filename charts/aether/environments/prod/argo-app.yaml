@@ -26,3 +26,11 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: aether
+  namespace: argocd
+spec:
+  description: aether API
