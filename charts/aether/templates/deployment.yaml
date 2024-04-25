@@ -19,6 +19,8 @@ spec:
         env:
         - name: RUST_LOG
           value: info
+        - name: SERVER_PORT
+          value: 8001
         ports:
         - containerPort: 8001
 
