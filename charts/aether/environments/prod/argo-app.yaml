@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aether-prod
+  namespace: argocd
+spec:
+  destination:
+    namespace: aether
+    server: https://kubernetes.default.svc
+  project: aether
+  source:
+    chart: aether
+    helm:
+      valueFiles:
+        - environments/prod/values.yaml
+    repoURL: https://abstractsdk.github.io/deployments/
+    targetRevision: 0.2.x
+  syncPolicy:
+    automated: {}
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true

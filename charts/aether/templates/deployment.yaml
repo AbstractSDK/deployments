@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}-api
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-api
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-api
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}-api
+        image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api:{{ .Values.aether.version}}
+        imagePullPolicy: Always
+        env:
+        - name: RUST_LOG
+          value: info
+        ports:
+        - containerPort: 8001
+
