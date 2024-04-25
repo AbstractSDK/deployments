@@ -14,7 +14,7 @@ spec:
       valueFiles:
         - environments/prod/values.yaml
     repoURL: https://abstractsdk.github.io/deployments/
-    targetRevision: 0.2.x
+    targetRevision: 0.x
   syncPolicy:
     automated: {}
     retry:
