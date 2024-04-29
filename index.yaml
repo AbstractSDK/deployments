@@ -51,6 +51,18 @@ entries:
     version: 0.0.1
   carrot:
   - apiVersion: v2
+    appVersion: 0.4.0
+    created: "2024-04-29T17:37:10.882006673Z"
+    description: A Helm chart for deploying the Carrot Savings App
+    digest: 3bb3798f2538c3795f9f14a24d072e2e4546ed117ac308855a07294ea14fec1b
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: carrot
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/carrot-0.2.36/carrot-0.2.36.tgz
+    version: 0.2.36
+  - apiVersion: v2
     appVersion: 0.3.1
     created: "2024-04-25T16:47:25.942529454Z"
     description: A Helm chart for deploying the Carrot Savings App
@@ -604,4 +616,4 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.1/dca-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-25T16:47:25.943047163Z"
+generated: "2024-04-29T17:37:10.882228756Z"
