@@ -1,3 +1,5 @@
+{{ range $app := .Values.apps }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,42 +16,16 @@ spec:
     spec:
       containers:
       - name: console
-        image: "{{ .Values.apps.console.image }}:{{ .Values.apps.console.version }}"
+        image: {{ $app.image  }}:{{ $app.version }}
         imagePullPolicy: Always
+        {{ if hasKey $app "env" }}
         env:
-        - name: RUST_LOG
-          value: info
-        - name: SERVER_PORT
-          value: "8001"
+        {{ range $env := $app.env }}
+        - name: {{ $env.name }}
+          value: {{ $env.value }}
+          {{ end }}
+          {{ end }}
         ports:
         - containerPort: 8001
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: aether-api-{{ .Values.env }}
-  namespace: "{{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}"
-spec:
-  selector:
-    matchLabels:
-      app: aether-api-{{ .Values.env }}
-  template:
-    metadata:
-      labels:
-        app: aether-api-{{ .Values.env }}
-    spec:
-      containers:
-        - name: aether-api
-          image: "{{ .Values.apps.aether.image }}:{{ .Values.apps.aether.version }}"
-          imagePullPolicy: Always
-          env:
-          - name: RUST_LOG
-            value: info
-          - name: SERVER_PORT
-            value: "8001"
-          ports:
-          - containerPort: 8001
-
-
-
-
+  
+{{ end }}

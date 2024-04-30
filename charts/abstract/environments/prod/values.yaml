@@ -1,8 +1,13 @@
 env: prod
 apps:
-  console: 
+  - name: console 
     image: nginx
     version: latest
-  aether: 
+  - name: aether-api 
     image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api
     version: latest
+    env:
+      - name: RUST_LOG
+        value: info
+      - name: SERVER_PORT
+        value: "8001" 
