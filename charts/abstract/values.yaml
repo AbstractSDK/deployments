@@ -1,0 +1,9 @@
+replicaCount: 1
+env: default
+apps:
+  console: 
+    image: "537748208826.dkr.ecr.us-east-1.amazonaws.com/console"
+    version: "latest"
+  aether: 
+    image: "537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api"
+    version: "latest"
