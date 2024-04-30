@@ -1,9 +1,10 @@
+{{ range $app := .Values.apps }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: console-{{ .Values.env }}
-  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
+  name: {{ $app.name  }}-{{ $.Values.env }}
+  namespace: {{ regexReplaceAll "\\W+" $.Chart.Name  "-" }}-{{ $.Values.env }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -11,44 +12,18 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: console.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
+  - host: {{ $app.name  }}.{{ $.Values.env }}.{{ $.Chart.Name }}.abstract.money
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: console-{{ .Values.env }}
+            name: {{ $app.name  }}-{{ $.Values.env }}
             port:
               number: 80
   tls:
   - hosts:
-    - console.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
-    secretName: console-cert
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: aether-{{ .Values.env }}
-  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/ssl-redirect: "false"
-    acme.cert-manager.io/http01-edit-in-place: "true"
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: aether-api-{{ .Values.env }}
-            port:
-              number: 80
-  tls:
-  - hosts:
-    - api.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
-    secretName: api-cert
+    - {{ $app.name  }}.{{ $.Values.env }}.{{ $.Chart.Name }}.abstract.money
+    secretName: {{ $app.name  }}-cert
+{{ end }}

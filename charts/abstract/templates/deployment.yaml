@@ -1,4 +1,3 @@
-{{- $root := . -}}
 {{ range $app := .Values.apps }}
 ---
 apiVersion: apps/v1
@@ -27,6 +26,6 @@ spec:
           {{ end }}
         {{ end }}
         ports:
-        - containerPort: 8001
+        - containerPort: {{ $app.port }}
   
 {{ end }}
