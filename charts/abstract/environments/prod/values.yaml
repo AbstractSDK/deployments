@@ -1,8 +1,8 @@
 env: prod
 apps:
   console: 
-    image: "nginx"
-    version: "latest"
+    image: nginx
+    version: latest
   aether: 
-    image: "537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api"
-    version: "latest"
+    image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api
+    version: latest

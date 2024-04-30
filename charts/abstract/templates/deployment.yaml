@@ -13,7 +13,7 @@ spec:
         app: console-{{ .Values.env }}
     spec:
       containers:
-        image: "{{ .Values.apps.console.image }}:{{ .Values.apps.console.version }}"
+        image: {{ .Values.apps.console.image }}:{{ .Values.apps.console.version }}
         imagePullPolicy: Always
         env:
         - name: RUST_LOG
