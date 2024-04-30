@@ -3,6 +3,9 @@ apps:
   - name: console 
     image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/console
     version: latest
+    env:
+      - name: BLABLA
+        value: info
   - name: aether-api 
     image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api
     version: latest
