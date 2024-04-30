@@ -4,8 +4,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: c{{ $app.image  }}-{{ $root.Values.env }}
-  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ $root.Values.env }}
+  name: {{ $app.image  }}-{{ $.Values.env }}
+  namespace: {{ regexReplaceAll "\\W+" $.Chart.Name  "-" }}-{{ $.Values.env }}
 spec:
   selector:
     matchLabels:
