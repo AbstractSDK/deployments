@@ -13,6 +13,7 @@ spec:
         app: console-{{ .Values.env }}
     spec:
       containers:
+      - name: console
         image: "{{ .Values.apps.console.image }}:{{ .Values.apps.console.version }}"
         imagePullPolicy: Always
         env:
@@ -38,15 +39,16 @@ spec:
         app: aether-api-{{ .Values.env }}
     spec:
       containers:
-        image: "{{ .Values.apps.aether.image }}:{{ .Values.apps.aether.version }}"
-        imagePullPolicy: Always
-        env:
-        - name: RUST_LOG
-          value: info
-        - name: SERVER_PORT
-          value: "8001"
-        ports:
-        - containerPort: 8001
+        - name: aether-api
+          image: "{{ .Values.apps.aether.image }}:{{ .Values.apps.aether.version }}"
+          imagePullPolicy: Always
+          env:
+          - name: RUST_LOG
+            value: info
+          - name: SERVER_PORT
+            value: "8001"
+          ports:
+          - containerPort: 8001
 
 
 
