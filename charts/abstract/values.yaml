@@ -9,6 +9,7 @@ apps:
   - name: aether-api 
     image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/aether-api
     version: latest
+    port: 8001
     env:
       - name: RUST_LOG
         value: info
