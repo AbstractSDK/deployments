@@ -17,13 +17,6 @@ spec:
       - name: console
         image: {{ $app.image  }}:{{ $app.version }}
         imagePullPolicy: Always
-        {{ if hasKey $app "env" }}
-        env:
-        {{ range $env := $app.env }}
-        - name: {{ $env.name }}
-          value: {{ $env.value }}
-          {{ end }}
-        {{ end }}
         ports:
         - containerPort: 8001
   
