@@ -45,7 +45,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: aether-{{ .Values.env }}
+            name: aether-api-{{ .Values.env }}
             port:
               number: 80
   tls:
