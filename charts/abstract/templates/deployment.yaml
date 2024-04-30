@@ -23,7 +23,7 @@ spec:
         env:
         {{ range $env := $app.env }}
         - name: {{ $env.name }}
-          value: {{ $env.value }}
+          value: "{{ $env.value }}""
           {{ end }}
         {{ end }}
         ports:
