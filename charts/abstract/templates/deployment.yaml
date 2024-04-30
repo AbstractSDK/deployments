@@ -1,22 +1,30 @@
+{{- $root := . -}}
 {{ range $app := .Values.apps }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: console-{{ .Values.env }}
+  name: console-{{ $root.Values.env }}
 spec:
   selector:
     matchLabels:
-      app: console-{{ .Values.env }}
+      app: console-{{ $root.Values.env }}
   template:
     metadata:
       labels:
-        app: console-{{ .Values.env }}
+        app: console-{{ $root.Values.env }}
     spec:
       containers:
       - name: console
         image: {{ $app.image  }}:{{ $app.version }}
         imagePullPolicy: Always
+        {{ if hasKey $app "env" }}
+        env:
+        {{ range $env := $app.env }}
+        - name: {{ $env.name }}
+          value: {{ $env.value }}
+          {{ end }}
+        {{ end }}
         ports:
         - containerPort: 8001
   
