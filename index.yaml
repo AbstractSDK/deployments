@@ -3,6 +3,18 @@ entries:
   abstract:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-04-30T16:17:27.785073827Z"
+    description: A Helm chart for deploying the abstract cluster.
+    digest: 1a570174972c8141335751930403874daf414a67498b84966953422582e74779
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: abstract
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/abstract-0.0.18/abstract-0.0.18.tgz
+    version: 0.0.18
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-04-30T16:12:27.561102849Z"
     description: A Helm chart for deploying the abstract cluster.
     digest: c3caf5807db7bcb082a49905dea05157b1c187b6b257fe0df3e07daa52dd7842
@@ -821,4 +833,4 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.1/dca-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-30T16:12:27.56135412Z"
+generated: "2024-04-30T16:17:27.785307336Z"
