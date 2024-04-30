@@ -4,18 +4,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: console-{{ $root.Values.env }}
+  name: c{{ $app.image  }}-{{ $root.Values.env }}
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ $root.Values.env }}
 spec:
   selector:
     matchLabels:
-      app: console-{{ $root.Values.env }}
+      app: {{ $app.image  }}-{{ $root.Values.env }}
   template:
     metadata:
       labels:
-        app: console-{{ $root.Values.env }}
+        app: {{ $app.image  }}-{{ $root.Values.env }}
     spec:
       containers:
-      - name: console
+      - name: {{ $app.image  }}
         image: {{ $app.image  }}:{{ $app.version }}
         imagePullPolicy: Always
         {{ if hasKey $app "env" }}

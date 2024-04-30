@@ -1,7 +1,7 @@
 apiVersion: v2
 description: A Helm chart for deploying the abstract cluster.
 name: abstract
-version: 0.0.13
+version: 0.0.14
 AppVersion: 0.0.1
 maintainers:
   - name: katarina
