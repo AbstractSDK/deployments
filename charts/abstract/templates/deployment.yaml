@@ -4,7 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: console-{{ .Values.env }}
-  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
 spec:
   selector:
     matchLabels:
@@ -24,7 +23,7 @@ spec:
         - name: {{ $env.name }}
           value: {{ $env.value }}
           {{ end }}
-          {{ end }}
+        {{ end }}
         ports:
         - containerPort: 8001
   
