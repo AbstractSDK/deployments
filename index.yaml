@@ -844,6 +844,19 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/carrot-app-0.1.2/carrot-app-0.1.2.tgz
     version: 0.1.2
+  console:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-05-15T19:20:30.537264426Z"
+    description: A Helm chart for deploying the console.
+    digest: e17d0d47843d717917af8dc07d8c0a67bb2c6749e5af4a43230f95d125583ab8
+    maintainers:
+    - email: howard@abstract.money
+      name: cyberhoward
+    name: console
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/console-0.0.1/console-0.0.1.tgz
+    version: 0.0.1
   dca:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -857,4 +870,17 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.1/dca-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-30T16:29:00.077934864Z"
+  subgraph:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-05-15T19:20:30.654122906Z"
+    description: A Helm chart for deploying the subgraph.
+    digest: 0394a72248adc0f0a60dee9b2e553dba67b4226b10b0e733f68ca31205add61b
+    maintainers:
+    - email: howard@abstract.money
+      name: cyberhoward
+    name: subgraph
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/subgraph-0.0.1/subgraph-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-05-15T19:20:30.654359208Z"
