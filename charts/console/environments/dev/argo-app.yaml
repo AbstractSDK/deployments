@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: console-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: console
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: console
+    helm:
+      valueFiles:
+        - environments/dev/values.yaml
+    repoURL: https://abstractsdk.github.io/deployments/
+    targetRevision: 0.x
+  syncPolicy:
+    automated: {}
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+
