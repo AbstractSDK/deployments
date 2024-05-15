@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ regexReplaceAll "\\W+" .Chart.Name  "-" }}-{{ .Values.env }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: 537748208826.dkr.ecr.us-east-1.amazonaws.com/subgraph:{{ .Values.subgraph.version}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4001
