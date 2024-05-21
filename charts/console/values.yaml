@@ -1,4 +1,0 @@
-replicaCount: 1
-env: default
-aether: 
-  version: "latest"

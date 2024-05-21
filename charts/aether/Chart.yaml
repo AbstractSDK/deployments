@@ -1,8 +1,0 @@
-apiVersion: v2
-description: A Helm chart for deploying the aether API.
-name: aether
-version: 0.0.4
-AppVersion: 0.0.1
-maintainers:
-  - name: cyberhoward
-    email: howard@abstract.money
