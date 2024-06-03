@@ -1,7 +1,7 @@
 apiVersion: v2
 description: A Helm chart for deploying the DCA App
 name: dca
-version: 0.0.1
+version: 0.0.2
 AppVersion: 0.0.1
 maintainers:
   - name: katarina

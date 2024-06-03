@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ .Chart.Name }}-bot.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
+  - host: {{ .Chart.Name }}-bot.{{ .Values.env }}.{{ .Chart.Name }}.dev.abstract.money
     http:
       paths:
       - path: /metrics
@@ -23,5 +23,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - {{ .Chart.Name }}-bot.{{ .Values.env }}.{{ .Chart.Name }}.abstract.money
+    - {{ .Chart.Name }}-bot.{{ .Values.env }}.{{ .Chart.Name }}.dev.abstract.money
     secretName: {{ .Chart.Name }}-cert
