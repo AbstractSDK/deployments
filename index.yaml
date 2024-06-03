@@ -3,6 +3,18 @@ entries:
   abstract:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-06-03T13:34:32.01635902Z"
+    description: A Helm chart for deploying the abstract cluster.
+    digest: 0027b333727e9e431bb0bf9135cac401ec8af39df2f8294e69ede5435ce88b70
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: abstract
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/abstract-0.0.21/abstract-0.0.21.tgz
+    version: 0.0.21
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-04-30T16:29:00.077743777Z"
     description: A Helm chart for deploying the abstract cluster.
     digest: 79fa2f6f488b95c996f2284011940f29d256b458ecb3b6ceefd1ac57e407b104
@@ -291,6 +303,18 @@ entries:
     - https://github.com/AbstractSDK/deployments/releases/download/aether-0.0.1/aether-0.0.1.tgz
     version: 0.0.1
   carrot:
+  - apiVersion: v2
+    appVersion: 0.4.0
+    created: "2024-06-03T13:34:32.191400059Z"
+    description: A Helm chart for deploying the Carrot Savings App
+    digest: 454f25e390d68618aac3fbc20ef76afcae189b94cfa902e9989b9af9f0106bf9
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: carrot
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/carrot-0.2.37/carrot-0.2.37.tgz
+    version: 0.2.37
   - apiVersion: v2
     appVersion: 0.4.0
     created: "2024-04-29T17:37:10.882006673Z"
@@ -860,6 +884,18 @@ entries:
   dca:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-06-03T13:34:32.39344104Z"
+    description: A Helm chart for deploying the DCA App
+    digest: 2959b909d315db4b86bd5950db886aecef88d5c86392c9fe94ca9ba3b24bdbc2
+    maintainers:
+    - email: kais@abstract.money
+      name: katarina
+    name: dca
+    urls:
+    - https://github.com/AbstractSDK/deployments/releases/download/dca-0.0.2/dca-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-04-10T12:10:51.747942425Z"
     description: A Helm chart for deploying the DCA App
     digest: 8a89226f68cbdee8bc9a12f8bdd436c082b2e51846a1ad2c074712ba82806860
@@ -883,4 +919,4 @@ entries:
     urls:
     - https://github.com/AbstractSDK/deployments/releases/download/subgraph-0.0.1/subgraph-0.0.1.tgz
     version: 0.0.1
-generated: "2024-05-15T19:20:30.654359208Z"
+generated: "2024-06-03T13:34:32.393916873Z"
